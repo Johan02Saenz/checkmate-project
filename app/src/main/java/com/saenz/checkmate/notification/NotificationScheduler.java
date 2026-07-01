@@ -4,9 +4,7 @@ import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
-
 import com.saenz.checkmate.receiver.NotificationReceiver;
-
 import java.util.Calendar;
 
 public class NotificationScheduler {
