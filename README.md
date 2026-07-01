@@ -36,3 +36,26 @@ Este proyecto se define metodológicamente como un Estudio de Caso con alcance D
 ## Arquitectura del Software
 
 El sistema implementa una arquitectura limpia y desacoplada basada en el patrón de diseño MVVM (Model-View-ViewModel) de Android Jetpack:
+
+
+## Arquitectura de Datos
+
+**Checkmate** implementa la arquitectura limpia estándar de Android utilizando el patrón **ViewModel → DAO → Room** para todas las operaciones de persistencia en el dispositivo.
+
+* **Asincronía:** Las consultas a la base de datos se ejecutan estrictamente en hilos secundarios mediante **Corrutinas de Kotlin** (`Dispatchers.IO`), asegurando que la interfaz de usuario se mantenga fluida y libre de bloqueos.
+* **Reactividad:** La capa de datos expone los resultados a la UI a través de **LiveData**, permitiendo una actualización en tiempo real cuando ocurren cambios.
+* **Almacenamiento Local:** El sistema está diseñado bajo un enfoque *offline-first* absoluto. No existe capa de red ni repositorio remoto; el 100% de los datos residen de forma segura en el directorio privado del dispositivo.
+
+---
+
+## Cómo probar el CRUD
+
+Sigue estos pasos dentro de la aplicación para verificar el ciclo completo de creación, lectura, actualización y eliminación de datos:
+
+1. **Crear (Create):** Inicia una partida contra cualquier nivel de bot y complétala. Al finalizar, el sistema registrará la partida automáticamente en el historial local.
+
+2. **Leer (Read):** Navega a la pantalla de **Historial** para verificar que el registro aparece correctamente detallado con su resultado, duración y el nivel del oponente contra el que jugaste.
+
+3. **Actualizar (Update):** Toca cualquier partida del historial para acceder a su pantalla de detalle. Una vez ahí, edita la **nota de análisis**, guarda los cambios y regresa al historial para verificar que la modificación persiste.
+
+4. **Eliminar (Delete):** Mantén presionada una partida de la lista y selecciona la opción de eliminar. Confirma la acción en el `AlertDialog`. Si lo necesitas, puedes presionar el botón de deshacer en el `Snackbar` emergente para revertir la eliminación inmediatamente.
