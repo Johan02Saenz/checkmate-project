@@ -30,7 +30,6 @@ public class NotificationScheduler {
         checkAndAdjustCalendar (calendar);
         checkAndAdjustCalendar (calendar1);
 
-
         // Repetir cada 24 horas
         alarmManager.setRepeating(
                 AlarmManager.RTC_WAKEUP,
