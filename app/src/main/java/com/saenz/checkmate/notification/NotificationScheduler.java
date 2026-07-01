@@ -22,7 +22,6 @@ public class NotificationScheduler {
         PendingIntent pendingIntent = createIntent(0,context,intent);
         PendingIntent pendingIntent1 = createIntent(1,context,intent);
 
-        // Configurar hora: 12:00 PM
         Calendar calendar = setCalendar(11,6,30);
         Calendar calendar1 = setCalendar(11,8,30);
 
