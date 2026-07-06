@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#121212">
+
+    <!-- HEADER — Info del bot oponente -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:background="#1E1E1E"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp">
+
+        <TextView
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:text="🤖"
+            android:textSize="24sp"
+            android:gravity="center"
+            android:background="#37474F"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_marginStart="10dp">
+
+            <TextView
+                android:id="@+id/tvBotName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bot"
+                android:textColor="#EAEAEA"
+                android:textSize="14sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/tvBotElo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ELO —"
+                android:textColor="#546E7A"
+                android:textSize="11sp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="end">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TIEMPO"
+                android:textColor="#546E7A"
+                android:textSize="10sp"
+                android:letterSpacing="0.05"/>
+
+            <TextView
+                android:id="@+id/tvTimer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00:00"
+                android:textColor="#EAEAEA"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:fontFamily="monospace"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- BARRA DE TURNO -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:background="#1A1A2E"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp">
+
+        <TextView
+            android:id="@+id/tvTurn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="👤 Tu turno"
+            android:textColor="#EAEAEA"
+            android:textSize="13sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Juegas con blancas"
+            android:textColor="#546E7A"
+            android:textSize="11sp"/>
+
+    </LinearLayout>
+
+    <!-- TABLERO DE AJEDREZ -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#1A1A2E"
+        android:gravity="center"
+        android:padding="8dp">
+
+        <GridLayout
+            android:id="@+id/chessBoard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:columnCount="8"
+            android:rowCount="8"/>
+
+    </LinearLayout>
+
+    <!-- JUGADAS RECIENTES -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#1E1E1E"
+        android:orientation="vertical"
+        android:padding="12dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ÚLTIMAS JUGADAS"
+            android:textColor="#546E7A"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.08"
+            android:layout_marginBottom="6dp"/>
+
+        <TextView
+            android:id="@+id/tvMoves"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Aún no hay jugadas"
+            android:textColor="#B0BEC5"
+            android:textSize="12sp"
+            android:fontFamily="monospace"/>
+
+    </LinearLayout>
+
+    <!-- CONTROLES -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#1E1E1E"
+        android:orientation="horizontal"
+        android:padding="12dp"
+        android:gravity="center_vertical">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnPause"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:text="⏸ Pausar"
+            android:textColor="#EAEAEA"
+            android:textSize="14sp"
+            android:layout_marginEnd="8dp"
+            app:backgroundTint="#121212"
+            app:strokeColor="#546E7A"
+            app:strokeWidth="1.5dp"
+            app:cornerRadius="12dp"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnResign"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="2"
+            android:text="🏳 Rendirse"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:backgroundTint="#CF6679"
+            app:cornerRadius="12dp"/>
+
+    </LinearLayout>
+
+    <!-- BARRA DEL JUGADOR -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#1E1E1E"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="12dp"
+        android:layout_marginTop="2dp">
+
+        <TextView
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:text="👤"
+            android:textSize="22sp"
+            android:gravity="center"
+            android:background="#3D5AFE"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_marginStart="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Jugador"
+                android:textColor="#EAEAEA"
+                android:textSize="14sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Blitz"
+                android:textColor="#546E7A"
+                android:textSize="11sp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="end">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TU TIEMPO"
+                android:textColor="#546E7A"
+                android:textSize="10sp"
+                android:letterSpacing="0.05"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="∞"
+                android:textColor="#3D5AFE"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:fontFamily="monospace"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

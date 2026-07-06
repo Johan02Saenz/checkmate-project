@@ -1,9 +1,14 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.CheckMate" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    <style name="Theme.Checkmate" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <item name="colorPrimary">#3D5AFE</item>
+        <item name="colorPrimaryVariant">#2A3EB1</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
+        <item name="colorSecondary">#546E7A</item>
+        <item name="colorOnSecondary">#FFFFFF</item>
+        <item name="android:colorBackground">#121212</item>
+        <item name="colorSurface">#1E1E1E</item>
+        <item name="colorOnSurface">#EAEAEA</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
     </style>
-
-    <style name="Theme.CheckMate" parent="Base.Theme.CheckMate" />
 </resources>
