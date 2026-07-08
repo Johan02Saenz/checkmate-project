@@ -200,7 +200,12 @@ public class GameActivity extends AppCompatActivity {
             for (int col = 0; col < 8; col++) {
                 TextView cell = cellViews[row][col];
                 cell.setText(chessBoard.getSymbol(row, col));
-
+                String pieceCode = chessBoard.getPiece(row, col);
+                if (pieceCode != null && pieceCode.startsWith("w")) {
+                    cell.setTextColor(WHITE_PIECE_COLOR);
+                } else if (pieceCode != null && pieceCode.startsWith("b")) {
+                    cell.setTextColor(BLACK_PIECE_COLOR);
+                }
                 boolean isSelected = row == chessBoard.getSelectedRow() && col == chessBoard.getSelectedCol();
                 boolean isLastMove = last != null &&
                         ((row == last.fromRow && col == last.fromCol) ||
